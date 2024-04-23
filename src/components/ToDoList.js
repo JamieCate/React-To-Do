@@ -23,6 +23,11 @@ export default function ToDoListList({
       .slice()
       .sort((a, b) => Number(a.complete) - Number(b.complete));
 
+  if (sortBy === "priority")
+    sortedItems = items
+      .slice()
+      .sort((a, b) => Number(a.priority) - Number(b.priority));
+
   return (
     <div className="list">
       <ul>
@@ -41,6 +46,7 @@ export default function ToDoListList({
           <option value="input">Sort by input order</option>
           <option value="description">Sort by description</option>
           <option value="complete">Sort by status</option>
+          <option value="priority">Sort by priority</option>
         </select>
         <button onClick={onClearList}>Clear List</button>
       </div>

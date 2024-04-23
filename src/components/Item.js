@@ -8,6 +8,7 @@ export default function Item({ item, onDeleteItem, onToggleItem }) {
           onToggleItem(item.id);
         }}
       ></input>
+      <span>{item.priority}</span>
       <span style={item.complete ? { textDecoration: "line-through" } : {}}>
         {item.description}{" "}
         <button onClick={() => onDeleteItem(item.id)}>❌</button>

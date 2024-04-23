@@ -2,32 +2,32 @@ import { useState } from "react";
 
 export default function Form({ onAddItems }) {
   const [description, setDescription] = useState("");
-  const [amount, setAmount] = useState(1);
+  const [priority, setPriority] = useState(1);
 
   function handleSubmit(event) {
     event.preventDefault();
     if (!description) return;
-    const newItem = { description, amount, complete: false, id: Date.now() };
-
+    const newItem = { description, priority, complete: false, id: Date.now() };
+    console.log(newItem, "new");
     onAddItems(newItem);
 
     setDescription("");
-    setAmount(1);
+    setPriority(1);
   }
 
   return (
     <form className="add-form" onSubmit={handleSubmit}>
       <h3>What needs to be added to the list?</h3>
-      {/* <select
-        value={amount}
-        onChange={(e) => setAmount(Number(e.target.value))}
+      <select
+        value={priority}
+        onChange={(e) => setPriority(Number(e.target.value))}
       >
-        {Array.from({ length: 20 }, (_, i) => i + 1).map((num) => (
+        {Array.from({ length: 10 }, (_, i) => i + 1).map((num) => (
           <option value={num} key={num}>
             {num}
           </option>
         ))}
-      </select> */}
+      </select>
       <input
         type="text"
         placeholder="Task..."

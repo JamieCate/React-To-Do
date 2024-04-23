@@ -15,7 +15,7 @@ export default function Stats({ items }) {
         {percentage === 100
           ? "You nothing left to do!"
           : `You have ${numItems} tasks to complete
-        ${numComplete} tasks (${percentage})% complete!`}
+        ${numComplete} tasks ${percentage}% complete!`}
       </em>
     </footer>
   );
